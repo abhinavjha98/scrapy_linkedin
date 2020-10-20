@@ -18,7 +18,8 @@ NEWSPIDER_MODULE = 'linkedin.spiders'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
+DUPEFILTER_DEBUG = True
+REDIRECT_ENABLED = True
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
