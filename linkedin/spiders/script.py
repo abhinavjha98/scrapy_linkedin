@@ -23,10 +23,11 @@ class Linked(scrapy.Spider):
     start_urls = (
         'https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin',
     )
-    handle_httpstatus_list = [303]
+    handle_httpstatus_list = [303,999]
     BASE_URL = 'https://www.linkedin.com/'
-    USER_AGENT='Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1'
+    USER_AGENT='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
     headers = {'User-Agent': USER_AGENT}
+
     def parse(self,response):
     	token = response.css('form input::attr(value)').extract_first()
     	return FormRequest.from_response(response,formdata={
