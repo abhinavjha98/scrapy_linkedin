@@ -18,7 +18,7 @@ class DmozItem(scrapy.Item):
 	ApplyLink = scrapy.Field()
 
 class Linked(scrapy.Spider):
-    name = "linked"
+    name = "linkedpagosa"
     page_numbers = 1
     start_urls = (
         'https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin',
@@ -39,7 +39,7 @@ class Linked(scrapy.Spider):
     def start_scraping (self,response):
     	
     	lin = [
-    	"https://www.linkedin.com/jobs/search/?f_TPR=r604800&geoId=101174742&keywords=data%20analyst&location=Canada&sortBy=DD&currentJobId=2219719736&position=1&pageNum=0"]
+    	"https://www.linkedin.com/jobs/search?keywords=&location=Pagosa%20Springs%2C%20Colorado%2C%20United%20States&geoId=102446922&trk=homepage-jobseeker_jobs-search-bar_search-submit&redirect=false&position=1&pageNum=0"]
   #   	nextpagelink = section.find('a', {'data-tracking-control-name': 'guest_job_search_create-job-alert-bottom-of-results'}
 		# nextpageurl = nextpagelink.get('href')
     	for i in lin:
@@ -50,7 +50,7 @@ class Linked(scrapy.Spider):
     	links = response.css('a.result-card__full-card-link').xpath("@href").extract()
     	for link in links:
     		yield scrapy.Request(link, callback=self.parse_members)
-    	next_page = "https://www.linkedin.com/jobs/search/?f_TPR=r604800&geoId=101174742&keywords=data%20analyst&location=Canada&sortBy=DD&currentJobId=2219719736&position=1&pageNum="+str(Linked.page_numbers)
+    	next_page = "https://www.linkedin.com/jobs/search?keywords=&location=Pagosa%20Springs%2C%20Colorado%2C%20United%20States&geoId=102446922&trk=homepage-jobseeker_jobs-search-bar_search-submit&redirect=false&position=1&pageNum="+str(Linked.page_numbers)
     	print("Hello"+str(Linked.page_numbers))
     	if Linked.page_numbers<=5000:
     		Linked.page_numbers +=1

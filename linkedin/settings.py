@@ -12,7 +12,8 @@ BOT_NAME = 'linkedin'
 SPIDER_MODULES = ['linkedin.spiders']
 NEWSPIDER_MODULE = 'linkedin.spiders'
 
-
+RETRY_HTTP_CODES = [429]
+DOWNLOAD_DELAY = 0.25  
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'linkedin (+http://www.yourdomain.com)'
 
