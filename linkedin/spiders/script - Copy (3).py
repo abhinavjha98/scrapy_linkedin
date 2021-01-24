@@ -18,7 +18,7 @@ class DmozItem(scrapy.Item):
 	ApplyLink = scrapy.Field()
 
 class Linked(scrapy.Spider):
-    name = "linkedUS"
+    name = "linkedUSJava"
     page_numbers = 1
     start_urls = (
         'https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin',
